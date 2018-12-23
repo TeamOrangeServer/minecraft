@@ -1,4 +1,4 @@
-# Minecraft 1.11 Dockerfile - Example with notes
+# Minecraft 1.7.10-forge Dockerfile - Example with notes
 
 # Use the offical Debian Docker image with a specified version tag, Jessie, so not all
 # versions of Debian images are downloaded.
