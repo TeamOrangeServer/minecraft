@@ -21,7 +21,9 @@ ENV MINECRAFT_VERSION 1.7.10-10.13.4.1614-1.7.10
 #wget -q https://s3.amazonaws.com/Minecraft.Download/versions/${MINECRAFT_VERSION}/minecraft_server.${MINECRAFT_VERSION}.jar;
 
 RUN apt -y update; \
-    apt install -y -t openjdk-8-jre-headless ca-certificates-java wget; \
+    add-apt-repository ppa:webupd8team/java; \
+    apt -y update; \
+    apt install -y -t oracle-java8-installer ca-certificates-java wget; \
     wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}/forge-${MINECRAFT_VERSION}-installer.jar; \
     java -jar java -jar forge-${MINECRAFT_VERSION}-installer.jar --installServer;
 
