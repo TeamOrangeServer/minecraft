@@ -2,7 +2,7 @@
 
 # Use the offical Debian Docker image with a specified version tag, Jessie, so not all
 # versions of Debian images are downloaded.
-FROM debian:jessie
+FROM ubuntu:18.04
 
 MAINTAINER Michael Chiang <mchiang@docker.com>
 
