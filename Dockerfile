@@ -7,7 +7,7 @@ FROM debian:jessie
 MAINTAINER Michael Chiang <mchiang@docker.com>
 
 # Drives which version we are going to install
-ENV MINECRAFT_VERSION 1.12.2
+ENV MINECRAFT_VERSION 1.7.10-10.13.4.1614-1.7.10
 
 # Use APT (Advanced Packaging Tool) built in the Linux distro to download Java, a dependency
 # to run Minecraft.
@@ -15,10 +15,16 @@ ENV MINECRAFT_VERSION 1.12.2
 # Then we update apt
 # Then we pull in all of our dependencies, 
 # Finally, we download the correct .jar file using wget
-RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list; \
-    apt-get -y update; \
-    apt install -y -t jessie-backports openjdk-8-jre-headless ca-certificates-java wget; \
-    wget -q https://s3.amazonaws.com/Minecraft.Download/versions/${MINECRAFT_VERSION}/minecraft_server.${MINECRAFT_VERSION}.jar;
+#RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list; \
+#    apt-get -y update; \
+#    apt install -y -t jessie-backports openjdk-8-jre-headless ca-certificates-java wget; \
+#wget -q https://s3.amazonaws.com/Minecraft.Download/versions/${MINECRAFT_VERSION}/minecraft_server.${MINECRAFT_VERSION}.jar;
+
+RUN apt -y update; \
+    apt install -y -t openjdk-8-jre-headless ca-certificates-java wget; \
+    wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}/forge-${MINECRAFT_VERSION}-installer.jar; \
+    java -jar java -jar forge-1.7.10-10.13.4.1614-1.7.10-installer.jar --installServer;
+
 # We do the above in a single line to reduce the number of layers in our container
 
 # Sets working directory for the CMD instruction (also works for RUN, ENTRYPOINT commands)
