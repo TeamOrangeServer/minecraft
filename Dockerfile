@@ -23,7 +23,7 @@ ENV MINECRAFT_VERSION 1.7.10-10.13.4.1614-1.7.10
 RUN apt -y update; \
     apt install -y -t openjdk-8-jre-headless ca-certificates-java wget; \
     wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}/forge-${MINECRAFT_VERSION}-installer.jar; \
-    java -jar java -jar forge-1.7.10-10.13.4.1614-1.7.10-installer.jar --installServer;
+    java -jar java -jar forge-${MINECRAFT_VERSION}-installer.jar --installServer;
 
 # We do the above in a single line to reduce the number of layers in our container
 
@@ -36,4 +36,4 @@ VOLUME /data
 EXPOSE 25565
 
 #Automatically accept Minecraft EULA, and start Minecraft server
-CMD echo eula=true > /data/eula.txt && java -jar /minecraft_server.${MINECRAFT_VERSION}.jar
+CMD echo eula=true > /data/eula.txt && java -jar /forge-${MINECRAFT_VERSION}-universal.jar
