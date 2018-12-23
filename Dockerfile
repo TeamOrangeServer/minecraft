@@ -4,7 +4,7 @@
 # versions of Debian images are downloaded.
 FROM ubuntu:18.04
 
-MAINTAINER aki(sousuke) <sousuke20xx@gmail.com>
+#MAINTAINER aki(sousuke) <sousuke20xx@gmail.com>
 
 # Drives which version we are going to install
 ENV MINECRAFT_VERSION 1.7.10-10.13.4.1614-1.7.10
