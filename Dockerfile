@@ -25,7 +25,7 @@ RUN apt -y update; \
     apt -y update; \
     apt install -y -t oracle-java8-installer ca-certificates-java wget; \
     wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}/forge-${MINECRAFT_VERSION}-installer.jar; \
-    java -jar java -jar forge-${MINECRAFT_VERSION}-installer.jar --installServer;
+    java -jar forge-${MINECRAFT_VERSION}-installer.jar --installServer;
 
 # We do the above in a single line to reduce the number of layers in our container
 
