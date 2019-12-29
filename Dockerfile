@@ -22,8 +22,8 @@ ENV MINECRAFT_VERSION 1.7.10-10.13.4.1614-1.7.10
 
 RUN apt -y update; \
     apt install -y wget; \
-    wget -q https://d3pxv6yz143wms.cloudfront.net/java-1.8.0-amazon-corretto-jdk_8.192.12-2_amd64.deb; \
-    apt install -y ./java-1.8.0-amazon-corretto-jdk_8.192.12-2_amd64.deb; \
+    wget -q https://corretto.aws/downloads/resources/8.232.09.1/java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb; \
+    apt install -y ./java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb; \
     wget -q http://files.minecraftforge.net/maven/net/minecraftforge/forge/${MINECRAFT_VERSION}/forge-${MINECRAFT_VERSION}-installer.jar; \
     java -jar forge-${MINECRAFT_VERSION}-installer.jar --installServer;
 
