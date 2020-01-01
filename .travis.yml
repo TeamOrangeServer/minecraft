@@ -1,0 +1,8 @@
+language: bash
+
+services:
+  - docker
+
+script:
+  - docker image build --tag sousuke0422/minecraft .
+  
